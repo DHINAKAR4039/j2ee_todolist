@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>todolist</title>
 <style >
 body{
 display: flex;
@@ -12,7 +12,7 @@ height: 100vh;
 width: 100%;
 align-items: center;
 justify-content: center;
-background-color: silver;
+background-color:rgb(204,255,255);
 }
 div{
 /* border: 1px solid black; */
@@ -24,7 +24,9 @@ display: flex;
 
 gap:20px;
 flex-direction: column;
-background-color: rgba(255,255,255,0.5); 
+background-color: rgba(224,224,224,0.6); 
+
+box-shadow: 15px 15px 30px rgb(0,102,102);
 text-align: center;
 }
 a{

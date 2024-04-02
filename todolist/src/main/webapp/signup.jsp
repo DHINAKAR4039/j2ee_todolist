@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>todolist</title>
+<title>signup</title>
 <style>
 body{
-font-family:cursive;
-background-image: url("https://t3.ftcdn.net/jpg/03/02/04/06/360_F_302040655_IEH9RyDlu7LL8YCLjgL1IskhrpOlmlSv.jpg");
+background-color:rgb(204,255,255);
 display: flex;
 height: 100vh;
 width: 100%;
@@ -18,10 +17,11 @@ align-items: center;
 table{ 
 padding:30px;
 line-height:50px;
-background-color:rgba(255,255,255,0.5); 
+background-color: rgba(224,224,224,0.6); 
 text-align: center;
 border-radius: 15px;
-box-shadow: 15px 15px 30px white;
+
+box-shadow: 15px 15px 30px rgb(0,102,102);
 font-size: large;
 }
 input{
