@@ -1,5 +1,7 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.Base64"%>
 <%@page import="dto.user"%>
+<%@page import="dto.Task"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,9 +10,18 @@
 <meta charset="UTF-8">
 <title>home</title>
 <style>
-body{
+*{
+padding: 10px;
+font-family: sans-serif;
+}
 
-background-color:rgb(204,255,255);
+body{
+/* background-color:rgb(204,255,255); */
+background-image: url("https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg");
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+background-repeat: no-repeat;
 height: 100vh;
 width: 100%;
 display: flex;
@@ -19,18 +30,16 @@ align-items: center;
 }
 #maindiv{
 padding:20px;
-background-color:white;
 display: flex;
-height: 90vh;
-width: 90%;
+height: 100%;
+width: 90%; 
 border-radius:25px;
-justify-content: flex-start;
+ justify-content: flex-start;
 gap:50px;
-flex-direction: column;
-
+flex-direction: column; 
 }
 #leftdiv {
-background-color:rgb(235, 245, 251);
+background-color:rgba(235, 245, 251,0.9);
 padding:20px;
 border-radius:25px;
 display: flex;
@@ -40,18 +49,37 @@ justify-content: space-between;
 
 a{
 border: none;
-padding: 10px;
+padding: 15px;
 text-decoration: none;
-background-color:rgb(0,51,51);
-color: white;
+background-color:rgb(255,255,255);
 border-radius: 25px; 
-
 }
-
+a:hover{
+background-color: aqua;
+box-shadow: 15px 15px 30px rgb(0,102,102);
+}
 img{
-border-radius: 100%;
+border-radius: 25px;
 }
 
+#tasktable{
+justify-content:center;
+align-items:center;
+display:flex;
+flex-direction:column;
+width:90%;
+text-align: center;
+
+}
+table,tr,td,th{
+border-collapse: collapse;
+padding: 20px;
+}
+table{
+background-color:rgba(255,255,255,0.9);
+border-radius: 25px;
+
+}
 </style>
 
 </head>
@@ -76,6 +104,34 @@ user u=(user)request.getSession().getAttribute("user");
 </div>
 
 <div><a href="Addtask.jsp">addtask</a></div>
+
+<% List<Task> tasks =(List)request.getAttribute("tasks");%>
+<div id="tasktable">
+
+<table>
+<h1>TASKS</h1>
+<tr>
+<th>ID</th>
+<th>TITLE</th>
+<th>DESCRIPTION</th>
+<th>PRIORITY</th>
+<th>DUE DATE</th>
+<th>STATUS</th>
+</tr>
+<%for(Task task:tasks){ %>
+<tr>
+<td><%=task.getTaskid()%></td>
+<td><%=task.getTasktitle() %></td>
+<td><%=task.getTaskdescription() %></td>
+<td><%=task.getTaskpriority() %></td>
+<td><%=task.getTaskduedate() %></td>
+<td><%=task.getTaskstatus() %></td>
+</tr>
+<%} %>
+</table>
+
 </div>
+</div>
+
 </body>
 </html>

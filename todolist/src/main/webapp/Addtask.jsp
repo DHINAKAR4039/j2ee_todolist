@@ -8,6 +8,10 @@
 <style >
 
 body{
+*{
+padding: 10px;
+font-family: sans-serif;
+}
 background-color:rgb(204,255,255);
 display: flex;
 height: 100vh;
@@ -32,14 +36,16 @@ input:hover {
 	background-color: rgb(204,229,255);
 }
 
-#submit{
-background-color:rgb(192,192,192);
-}
 
-#submit:hover{
+#submit:hover {
+	background-color: blue;
+	color: white;
+	box-shadow: 3px 3px 3px grey;
+}
+#submit{
 background-color: black;
 color: white;
-}
+} 
 
 
 

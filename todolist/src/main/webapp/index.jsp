@@ -7,12 +7,20 @@
 <title>todolist</title>
 <style >
 body{
+*{
+padding: 10px;
+font-family: sans-serif;
+}
 display: flex;
 height: 100vh;
 width: 100%;
 align-items: center;
 justify-content: center;
-background-color:rgb(204,255,255);
+/* background-color:rgb(204,255,255); */
+background-image: url("https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg");
+background-size:cover;
+background-position:center;
+background-repeat: no-repeat;
 }
 div{
 /* border: 1px solid black; */
