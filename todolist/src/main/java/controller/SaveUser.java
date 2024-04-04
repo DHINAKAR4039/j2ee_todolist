@@ -30,11 +30,11 @@ public class SaveUser extends HttpServlet {
 		Part imgpart=req.getPart("image");
 		byte[] image=imgpart.getInputStream().readAllBytes();
 		
-		user u=new user(id, name, email, contact, password, image);
 		
 		Dao dao=new Dao();
 		
 			try {
+				user u=new user(dao.getUserId(), name, email, contact, password, image);
 				int res = dao.Saveuser(u);
 				if (res>0) {
 					resp.sendRedirect("login.jsp");

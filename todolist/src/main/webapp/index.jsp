@@ -6,11 +6,12 @@
 <meta charset="UTF-8">
 <title>todolist</title>
 <style >
-body{
 *{
 padding: 10px;
 font-family: sans-serif;
 }
+body{
+
 display: flex;
 height: 100vh;
 width: 100%;
@@ -25,9 +26,9 @@ background-repeat: no-repeat;
 div{
 /* border: 1px solid black; */
 border-radius:15px;
-height: 170px;
+height: 200px;
 width: 150px;
-padding: 40px;
+padding: 30px;
 display: flex;
 
 gap:20px;

@@ -19,8 +19,6 @@ public class Addtask extends HttpServlet {
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-	
-	int taskid=Integer.parseInt(req.getParameter("taskid"));
 	String tasktitle=req.getParameter("tasktitle");
 	String taskdescription=req.getParameter("taskdescription");
 	String taskpriority=req.getParameter("taskpriority");
@@ -29,17 +27,18 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	user u=(user)req.getSession().getAttribute("user");
 	int userid=u.getUserid();
 	
-	Task task=new Task(taskid, tasktitle, taskdescription, taskpriority, taskduedate, "pending", userid);
+	
 	
 	Dao dao=new Dao();
 	try {
+		Task task=new Task(dao.getTaskId(), tasktitle, taskdescription, taskpriority, taskduedate, "pending", userid);
 		int res=dao.createtask(task);
 		
 		if(res>0) {
 			HttpSession session=req.getSession();
 			user User=(user)session.getAttribute("user");
 			
-			req.setAttribute("tasks", dao.getalltasksByUserId(u.getUserid()));
+			req.setAttribute("tasks", dao.getalltasksByUserId(User.getUserid()));
 			
 			RequestDispatcher dispatcher=req.getRequestDispatcher("home.jsp");
 			dispatcher.include(req, resp);

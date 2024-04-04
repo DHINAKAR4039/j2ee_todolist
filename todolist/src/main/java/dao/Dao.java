@@ -99,5 +99,41 @@ public List<Task> getalltasksByUserId(int userid) throws ClassNotFoundException,
 			return tasks;
 		}
 		
+public int deleteTaskById(int task1) throws ClassNotFoundException, SQLException 
+		{
+			Connection con=getConnection();
+			PreparedStatement pst=con.prepareStatement("delete from task where taskid=?");
+			pst.setInt(1, task1);
+			int res=pst.executeUpdate();
+			return res;
+		}
+
+public int getTaskId() throws ClassNotFoundException, SQLException 
+{
+	Connection con=getConnection();
+	PreparedStatement pst=con.prepareStatement("select max(taskid)from task");
+	ResultSet rs=pst.executeQuery();
+	if(rs.next()) {
+		int id=rs.getInt(1);
+		return id+1;
+	}
+	else {
+		return 1;
+	}
+}
+
+public int getUserId() throws ClassNotFoundException, SQLException 
+{
+	Connection con=getConnection();
+	PreparedStatement pst=con.prepareStatement("select max(userid)from user");
+	ResultSet rs=pst.executeQuery();
+	if(rs.next()) {
+		int id=rs.getInt(1);
+		return id+1;
+	}
+	else {
+		return 1;
+	}
+}
 		
 }

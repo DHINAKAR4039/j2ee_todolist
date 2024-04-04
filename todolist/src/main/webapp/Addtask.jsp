@@ -6,13 +6,17 @@
 <meta charset="UTF-8">
 <title>addtask</title>
 <style >
-
-body{
 *{
 padding: 10px;
 font-family: sans-serif;
 }
-background-color:rgb(204,255,255);
+body{
+/* background-color:rgb(204,255,255); */
+background-image: url("https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg");
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+background-repeat: no-repeat;
 display: flex;
 height: 100vh;
 width: 100%;
@@ -57,10 +61,6 @@ color: white;
 <form action="addtask" method="post">
 <table >
 		<tr><td colspan="2"><h1>ADD TASK</h1></td></tr>
-		<tr >
-			<td>TASK ID:</td>
-			<td><input type="text" name="taskid" required="required" placeholder="Task id"></td>
-		</tr>
 		<tr>
 			<td>TASK TITLE:</td>
 			<td><input type="text" name="tasktitle" required="required" placeholder="Task title" ></td>

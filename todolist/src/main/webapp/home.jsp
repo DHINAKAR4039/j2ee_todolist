@@ -31,19 +31,21 @@ align-items: center;
 #maindiv{
 padding:20px;
 display: flex;
-height: 100%;
-width: 90%; 
+height: 100vh;
+width: 100%; 
 border-radius:25px;
  justify-content: flex-start;
 gap:50px;
-flex-direction: column; 
+/* flex-direction: column;  */
 }
 #leftdiv {
 background-color:rgba(235, 245, 251,0.9);
 padding:20px;
 border-radius:25px;
 display: flex;
-width:500px;
+height:400px;
+width:400px;
+flex-direction:column;
 justify-content: space-between;
 }
 
@@ -63,10 +65,11 @@ border-radius: 25px;
 }
 
 #tasktable{
-justify-content:center;
-align-items:center;
+/* justify-content:center; */
+/* align-items:center; */
 display:flex;
 flex-direction:column;
+height:100vh;
 width:90%;
 text-align: center;
 
@@ -75,11 +78,12 @@ table,tr,td,th{
 border-collapse: collapse;
 padding: 20px;
 }
-table{
+table,#taskhead{
 background-color:rgba(255,255,255,0.9);
 border-radius: 25px;
 
 }
+
 </style>
 
 </head>
@@ -101,15 +105,16 @@ user u=(user)request.getSession().getAttribute("user");
 	<h2>Welcome <%= u.getUsername() %></h2>
 	<h4>Email:<%= u.getUseremail() %></h4>
 	</div>
+	<div><a href="Addtask.jsp">addtask</a></div>
 </div>
 
-<div><a href="Addtask.jsp">addtask</a></div>
+
 
 <% List<Task> tasks =(List)request.getAttribute("tasks");%>
 <div id="tasktable">
 
 <table>
-<h1>TASKS</h1>
+<h1 id="taskhead" >TASKS</h1>
 <tr>
 <th>ID</th>
 <th>TITLE</th>
@@ -117,16 +122,20 @@ user u=(user)request.getSession().getAttribute("user");
 <th>PRIORITY</th>
 <th>DUE DATE</th>
 <th>STATUS</th>
+<th>DELETE</th>
 </tr>
+<%int num=1; %>
 <%for(Task task:tasks){ %>
 <tr>
-<td><%=task.getTaskid()%></td>
+<td><%=num%></td>
 <td><%=task.getTasktitle() %></td>
 <td><%=task.getTaskdescription() %></td>
 <td><%=task.getTaskpriority() %></td>
 <td><%=task.getTaskduedate() %></td>
 <td><%=task.getTaskstatus() %></td>
+<td> <a style="text-decoration: none;" href="delete?taskid=<%= task.getTaskid()%>">delete</a> </td>
 </tr>
+<%num+=1; %>
 <%} %>
 </table>
 
