@@ -21,6 +21,7 @@ background-size:cover;
 background-position:center;
 background-repeat: no-repeat;
 display: flex;
+flex-wrap:wrap;
 height: 100vh;
 width: 100%;
 justify-content: center;

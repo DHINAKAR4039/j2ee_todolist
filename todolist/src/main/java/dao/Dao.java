@@ -98,7 +98,7 @@ public List<Task> getalltasksByUserId(int userid) throws ClassNotFoundException,
 	
 			return tasks;
 		}
-		
+
 public int deleteTaskById(int task1) throws ClassNotFoundException, SQLException 
 		{
 			Connection con=getConnection();
@@ -128,12 +128,33 @@ public int getUserId() throws ClassNotFoundException, SQLException
 	PreparedStatement pst=con.prepareStatement("select max(userid)from user");
 	ResultSet rs=pst.executeQuery();
 	if(rs.next()) {
-		int id=rs.getInt(1);
-		return id+1;
+		int userid=rs.getInt(1);
+		return userid+1;
 	}
 	else {
 		return 1;
 	}
 }
-		
+public Task findTaskById(int taskid) throws ClassNotFoundException, SQLException {
+	Connection con=getConnection();
+	PreparedStatement pst=con.prepareStatement("select * from task where taskid=?");
+	pst.setInt(1, taskid);
+	ResultSet rs=pst.executeQuery();
+	rs.next();
+	Task task=new Task(taskid, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)) ;
+	return task;
+}
+public int updateById(Task task) throws ClassNotFoundException, SQLException {
+	Connection con=getConnection();
+	PreparedStatement pst=con.prepareStatement("update task set tasktitle=?,taskdescription=?,taskpriority=?,taskduedate=?,taskstatus=? where taskid=?");
+	
+	pst.setString(1,task.getTasktitle());
+	pst.setString(2,task.getTaskdescription());
+	pst.setString(3, task.getTaskpriority());
+	pst.setString(4, task.getTaskduedate());
+	pst.setString(5,task.getTaskstatus());
+	pst.setInt(6, task.getUserid());
+	int res=pst.executeUpdate();
+	return res;
+}
 }

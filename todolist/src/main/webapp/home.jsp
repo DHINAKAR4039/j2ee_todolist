@@ -123,6 +123,7 @@ user u=(user)request.getSession().getAttribute("user");
 <th>DUE DATE</th>
 <th>STATUS</th>
 <th>DELETE</th>
+<th>EDIT</th>
 </tr>
 <%int num=1; %>
 <%for(Task task:tasks){ %>
@@ -134,6 +135,7 @@ user u=(user)request.getSession().getAttribute("user");
 <td><%=task.getTaskduedate() %></td>
 <td><%=task.getTaskstatus() %></td>
 <td> <a style="text-decoration: none;" href="delete?taskid=<%= task.getTaskid()%>">delete</a> </td>
+<td><a href="edit?taskid=<%= task.getTaskid()%>">edit</a>
 </tr>
 <%num+=1; %>
 <%} %>
