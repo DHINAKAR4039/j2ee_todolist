@@ -65,7 +65,7 @@ color: white;
 		<tr><td colspan="2"><h1>EDIT TASK</h1></td></tr>
 		<tr>
 			<td>TASK ID:</td>
-			<td><input type="text" name="taskid" hidden="" value="<%=task.getTaskid()%>"> </td>
+			<td><input type="text" name="taskid" readonly="readonly" value="<%=task.getTaskid()%>"> </td>
 		</tr>
 		<tr>
 			<td>TASK TITLE:</td>
@@ -92,6 +92,10 @@ color: white;
 		<tr>
 			<td>TASK STATUS:</td>
 			<td><input type="text" name="taskstatus" value="<%=task.getTaskstatus() %>"></td>
+		</tr>
+		<tr>
+			<td>USER ID:</td>
+			<td><input type="text" name="userid" readonly="readonly" value="<%=task.getUserid()%>"></td>
 		</tr>
 		<tr><td colspan="2"><input id="submit" type="submit"></td></tr>
 		

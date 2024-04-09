@@ -21,7 +21,6 @@ public class SaveUser extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		int id=Integer.parseInt(req.getParameter("id"));
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		long contact=Long.parseLong(req.getParameter("contact"));

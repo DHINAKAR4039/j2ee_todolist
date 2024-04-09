@@ -153,7 +153,7 @@ public int updateById(Task task) throws ClassNotFoundException, SQLException {
 	pst.setString(3, task.getTaskpriority());
 	pst.setString(4, task.getTaskduedate());
 	pst.setString(5,task.getTaskstatus());
-	pst.setInt(6, task.getUserid());
+	pst.setInt(6, task.getTaskid());
 	int res=pst.executeUpdate();
 	return res;
 }

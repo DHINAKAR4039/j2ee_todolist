@@ -54,10 +54,6 @@ color: white;
 <form action="saveuser" method="post" enctype="multipart/form-data">
 <table >
 		<tr><td colspan="2"><h1>SIGNUP</h1></td></tr>
-		<tr >
-			<td>ID:</td>
-			<td><input type="text" name="id" ></td>
-		</tr>
 		<tr>
 			<td>NAME:</td>
 			<td><input type="text" name="name" ></td>

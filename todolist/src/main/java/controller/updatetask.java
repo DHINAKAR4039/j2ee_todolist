@@ -25,8 +25,7 @@ public class updatetask extends HttpServlet{
 		String taskpriority=req.getParameter("taskpriority");
 		String taskduedate=req.getParameter("taskduedate");
 		String taskstatus=req.getParameter("taskstatus");
-		user u=(user)req.getSession().getAttribute("user");
-		int userid=u.getUserid();
+		int userid=Integer.parseInt(req.getParameter("userid"));
 		
 		
 		Dao dao=new Dao();
